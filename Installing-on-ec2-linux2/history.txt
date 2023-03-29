@@ -1,0 +1,86 @@
+1  docker version
+    2  docker --version
+    3  docker info
+    4  sudo systemctl status docker
+    5  docker
+    6  docker help
+    7  docker run --help
+    8  docker run -i -t ubuntu bash
+    9  docker ps
+   10  docker ps -a
+   11  docker ps
+   12  docker ps -a
+   13  docker images
+   14  docker image ls
+   15  docker ps
+   16  docker ps -a
+   17  docker container ls
+   18  docker container ls -a
+   19  docker run -i -t --name clarus ubuntu bash
+   20  docker container ls -a
+   21  docker start 727
+   22  docker container ls
+   23  docker ps
+   24  docker container ls -a
+   25  docker start eloquent_montalcini
+   26  docker container ls
+   27  docker stop 727
+   28  docker container ls -a
+   29  docker start clarus
+   30  docker container ls
+   31  docker run hello-world
+   32  docker container ls
+   33  docker container ls -a
+   34  docker exec -it clarus bash
+   35  docker container ls -a
+   36  docker container ls
+   37  docker container ls -a
+   38  docker inspect clarus
+   39  docker inspect clarus | less
+   40  docker container ls
+   41  docker container ls -a
+   42  docker contanier ls -a
+   43  docker container ls -a
+   44  docker rm 727
+   45  docker container ls -a
+   46  docker stop 727
+   47  docker container ls -a
+   48  docker rm 727
+   49  docker container ls -a
+   50  docker rm --help
+   51  docker container ls -a
+   52  docker rm -f ce2
+   53  docker container ls -a
+   54  docker ps --help
+   55  docker ps -aq
+   56  docker rm -f $(docker ps -aq)
+   57  docker container ls
+   58  docker container ls -a
+   59  docker run ubuntu
+   60  docker container ls
+   61  docker container ls -a
+   62  docker run hello-world
+   63  docker contanier ls -a
+   64  docker container ls -a
+   65  docker ps -aq
+   66  docker start $(docker ps -aq)
+   67  docker container ls
+   68  docker contanier ls -a
+   69  docker container ls -a
+   70  docker container ls
+   71  docker container ls -a
+   72  docker image ls
+   73  docker images
+   74  docker container ls -a
+   75  docker container --help
+   76  docker container ls -a
+   77  docker container prune
+   78  docker container ls -a
+   79  docker run nginx
+   80  docker run -d nginx
+   81  docker container ls -a
+   82  docker container run -d -p 80:80 nginx
+   83  docker container ls
+   84  docker run ubuntu whoami
+   85  docker run ubuntu ls
+   86  history

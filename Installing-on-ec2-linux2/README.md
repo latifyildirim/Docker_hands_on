@@ -39,7 +39,7 @@ sudo yum update -y
 - Install the most recent Docker Community Edition package.
 
 ```bash
-sudo amazon-linux-extras install docker -y
+sudo yum install docker -y
 ```
 
 - Start docker service.

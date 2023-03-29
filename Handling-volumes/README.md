@@ -1,4 +1,4 @@
-# Hands-on Docker-03 : Handling Docker Volumes
+# Hands-on Docker-03 : Handling Docker Volumes 
 
 Purpose of the this hands-on training is to teach students how to handle volumes in Docker containers.
 

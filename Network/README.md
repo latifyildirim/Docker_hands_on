@@ -58,11 +58,11 @@ systemctl status docker
 docker network ls
 ```
 
-- Run two `alpine` containers with interactive shell, in detached mode, name the container as `clarus1st` and `clarus2nd`, and add command to run alpine shell. Here, explain what the detached mode means.
+- Run two `alpine` containers with interactive shell, in detached mode, name the container as `latif1st` and `latif2nd`, and add command to run alpine shell. Here, explain what the detached mode means.
 
 ```bash
-docker container run -dit --name clarus1st alpine ash
-docker container run -dit --name clarus2nd alpine ash
+docker container run -dit --name latif1st alpine ash
+docker container run -dit --name latif2nd alpine ash
 ```
 
 - Show the list of running containers on Docker machine.
@@ -77,19 +77,19 @@ docker ps
 docker network inspect bridge | less
 ```
 
-- Get the IP of `clarus2st` container.
+- Get the IP of `latif2st` container.
 
 ```bash
-docker container inspect clarus2nd | grep IPAddress
+docker container inspect latif2nd | grep IPAddress
 ```
 
-- Connect to the `clarus1st` container.
+- Connect to the `latif1st` container.
 
 ```bash
-docker container attach clarus1st
+docker container attach latif1st
 ```
 
-- Show the details of network interface configuration of `clarus1st` container.
+- Show the details of network interface configuration of `latif1st` container.
 
 ```bash
 ifconfig
@@ -103,61 +103,61 @@ ifconfig
 
 - Compare with two configurations.
 
-- In the `clarus1st` container ping google.com four times to check internet connection.
+- In the `latif1st` container ping google.com four times to check internet connection.
 
 ```bash
 ping -c 4 google.com
 ```
 
-- Ping `clarus2nd `container by its IP four times to show the connection.
+- Ping `latif2nd `container by its IP four times to show the connection.
 
 ```bash
 ping -c 4 172.17.0.3
 ```
 
-- Try to ping `clarus2nd `container by its name, should face with bad address. Explain why failed (due to default bridge configuration not works with container names)
+- Try to ping `latif2nd `container by its name, should face with bad address. Explain why failed (due to default bridge configuration not works with container names)
 
 ```bash
-ping -c 4 clarus2nd
+ping -c 4 latif2nd
 ```
 
-- Disconnect from `clarus1st` without stopping it (CTRL + p + q).
+- Disconnect from `latif1st` without stopping it (CTRL + p + q).
 
 - Stop and delete the containers
 
 ```bash
-docker container stop clarus1st clarus2nd
-docker container rm clarus1st clarus2nd
+docker container stop latif1st latif2nd
+docker container rm latif1st latif2nd
 ```
 
 ## Part 3 - User-defined Network Bridge in Docker
 
-- Create a bridge network `clarusnet`.
+- Create a bridge network `latifnet`.
 
 ```bash
-docker network create --driver bridge clarusnet
+docker network create --driver bridge latifnet
 ```
 
-- List all networks available in Docker, and show the user-defined `clarusnet`.
+- List all networks available in Docker, and show the user-defined `latifnet`.
 
 ```bash
 docker network ls
 ```
 
-- Show the details of `clarusnet`, and show that there is no container yet.
+- Show the details of `latifnet`, and show that there is no container yet.
 
 ```bash
-docker network inspect clarusnet
+docker network inspect latifnet
 ```
 
-- Run four `alpine` containers with interactive shell, in detached mode, name the containers as `clarus1st`, `clarus2nd`, `clarus3rd` and `clarus4th`, and add command to run alpine shell. Here, 1st and 2nd containers should be in `clarusnet`, 3rd container should be in default network bridge, 4th container should be in both `clarusnet` and default network bridge.
+- Run four `alpine` containers with interactive shell, in detached mode, name the containers as `latif1st`, `latif2nd`, `latif3rd` and `latif4th`, and add command to run alpine shell. Here, 1st and 2nd containers should be in `latifnet`, 3rd container should be in default network bridge, 4th container should be in both `latifnet` and default network bridge.
 
 ```bash
-docker container run -dit --network clarusnet --name clarus1st alpine ash
-docker container run -dit --network clarusnet --name clarus2nd alpine ash
-docker container run -dit --name clarus3rd alpine ash
-docker container run -dit --name clarus4th alpine ash
-docker network connect clarusnet clarus4th
+docker container run -dit --network latifnet --name latif1st alpine ash
+docker container run -dit --network latifnet --name latif2nd alpine ash
+docker container run -dit --name latif3rd alpine ash
+docker container run -dit --name latif4th alpine ash
+docker network connect latifnet latif4th
 ```
 
 - List all running containers and show there up and running.
@@ -166,10 +166,10 @@ docker network connect clarusnet clarus4th
 docker container ls
 ```
 
-- Show the details of `clarusnet`, and explain newly added containers. (1st, 2nd, and 4th containers should be in the list)
+- Show the details of `latifnet`, and explain newly added containers. (1st, 2nd, and 4th containers should be in the list)
 
 ```bash
-docker network inspect clarusnet
+docker network inspect latifnet
 ```
 
 - Show the details of  default network bridge, and explain newly added containers. (3rd and 4th containers should be in the list)
@@ -178,23 +178,23 @@ docker network inspect clarusnet
 docker network inspect bridge
 ```
 
-- Connect to the `clarus1st` container.
+- Connect to the `latif1st` container.
 
 ```bash
-docker attach clarus1st
+docker attach latif1st
 ```
 
-- Ping `clarus2nd` and `clarus4th` container by its name to show that in user-defined network, container names can be used in networking.
+- Ping `latif2nd` and `latif4th` container by its name to show that in user-defined network, container names can be used in networking.
 
 ```bash
-ping -c 4 clarus2nd
-ping -c 4 clarus4th
+ping -c 4 latif2nd
+ping -c 4 latif4th
 ```
 
-- Try to ping `clarus3rd` container by its name and IP, should face with bad address because 3rd container is in different network.
+- Try to ping `latif3rd` container by its name and IP, should face with bad address because 3rd container is in different network.
 
 ```bash
-ping -c 4 clarus3rd
+ping -c 4 latif3rd
 ping -c 4 172.17.0.2
 ```
 
@@ -204,33 +204,33 @@ ping -c 4 172.17.0.2
 ping -c 4 google.com
 ```
 
-- Exit the `clarus1st` container without stopping and return to ec2-user bash shell.
+- Exit the `latif1st` container without stopping and return to ec2-user bash shell.
 
-- Connect to the `clarus4th` container, since it is in both network should connect all containers.
+- Connect to the `latif4th` container, since it is in both network should connect all containers.
 
 ```bash
-docker container attach clarus4th
+docker container attach latif4th
 ```
 
-- Ping `clarus2nd` and `clarus1st` container by its name, ping `clarus3rd` container with its IP. Explain why used IP, instead of name.
+- Ping `latif2nd` and `latif1st` container by its name, ping `latif3rd` container with its IP. Explain why used IP, instead of name.
 
 ```bash
-ping -c 4 clarus1st
-ping -c 4 clarus2nd
+ping -c 4 latif1st
+ping -c 4 latif2nd
 ping -c 4 172.17.0.2
 ```
 
-- Exit from `clarus4th` container. Stop and remove all containers.
+- Exit from `latif4th` container. Stop and remove all containers.
 
 ```bash
-docker container stop clarus1st clarus2nd clarus3rd clarus4th
-docker container rm clarus1st clarus2nd clarus3rd clarus4th
+docker container stop latif1st latif2nd latif3rd latif4th
+docker container rm latif1st latif2nd latif3rd latif4th
 ```
 
-- Delete `clarusnet` network
+- Delete `latifnet` network
 
 ```bash
-docker network rm clarusnet
+docker network rm latifnet
 ```
 
 ## Part 4 - Container Networking
@@ -244,7 +244,7 @@ docker container run --rm -d -p 8080:80 --name ng nginx
 - Add a security rule for protocol HTTP port 8080 and show Nginx Web Server is running on Docker Machine.
 
 ```text
-http://ec2-18-232-70-124.compute-1.amazonaws.com:8080
+http://ec2-18-232-70-124.compute-1.amazonaws.com:8080  
 ```
 
 - Stop container `ng`, should be removed automatically due to `--rm` flag.

@@ -1,0 +1,98 @@
+1  docker container run -dit --name clarus1st alpine ash
+    2  docker container ls
+    3  docker rm c6
+    4  docker rm -f c6
+    5  docker container ls
+    6  docker container ls -a
+    7  docker container run -dit --name clarus1st alpine ash
+    8  docker container run -dit --name clarus2nd alpine ash
+    9  docker container ls
+   10  docker network inspect bridge | less
+   11  docker container inspect clarus2nd | grep IPAddress
+   12  docker container inspect clarus1st | grep IPAddress
+   13  docker container attach clarus1st
+   14  docker container ls
+   15  docker container ls -a
+   16  docker container rm -f 15 cf
+   17  docker container ls -a
+   18  docker network --help
+   19  docker network create --driver bridge clarusnet
+   20  docker network ls
+   21  docker network inspect clarusnet
+   22  docker container ls
+   23  docker container ls -a
+   24  docker images
+   25  docker container run -dit --net
+   26  docker container run -dit --network clarusnet --name clarus1st alpine ash
+   27  docker container run -dit --network clarusnet --name clarus2nd alpine ash
+   28  docker container run -dit --name clarus3rd alpine ash
+   29  docker container run -dit --name clarus4th alpine ash
+   30  docker container ls
+   31  docker network connnect clarusnet clarus4th
+   32  docker network connect clarusnet clarus4th
+   33  docker container ls
+   34  docker network inspect clarusnet
+   35  docker network inspect bridge
+   36  docker network inspect clarusnet
+   37  docker network inspect bridge
+   38  docker attach clarus1st
+   39  docker container attach clarus4th
+   40  docker container ls
+   41  docker container ls -a
+   42  docker container start 61
+   43  docker container start 98
+   44  docker container ls
+   45  docker container attach clarus4th
+   46  docker container ls
+   47  docker container ls -a
+   48  docker container rm -f $(docker ps -aq)
+   49  docker container rm -f 45
+   50  docker network ls
+   51  docker network rm clarusnet
+   52  docker container run --rm -d -p 8080:80 --name ng nginx
+   53  docker container ls
+   54  docker container stop ng
+   55  docker container ls
+   56  docker container ls -a
+   57  docker ps -a
+   58  docker run --rm -dit --network host --name my_nginx nginx
+   59  docker container ls
+   60  docker container exec -it my_nginx sh
+   61  docker container ls
+   62  docker container stop my_nginx
+   63  docker container ls
+   64  docker container run --rm -it --network none --name nullcontainer alpine
+   65  docker container ls
+   66  docker network --help
+   67  docker ps
+   68  docker ps -a
+   69  docker container run -rm -d -p 8080:80 --name ng nginx
+   70  docker container run --rm -d -p 8080:80 --name ng nginx
+   71  docker container run --rm -d -p 8080:80 --name ng2 nginx
+   72  docker container run --rm -d -p 8090:80 --name ng nginx
+   73  docker container run --rm -d -p 8090:80 --name ng2 nginx
+   74  docker container run --rm -d -p 9090:90 --name ng3 nginx
+   75  docker container ls
+   76  cd /var/lib
+   77  ls
+   78  cd
+   79  docker container ls
+   80  docker exec -it ng ash
+   81  docker exec -it ng sh
+   82  docker ps
+   83  docker logs ng
+   84  docker logs --help
+   85  docker logs -t ng
+   86  docker logs --help
+   87  docker logs --since 2m ng
+   88  docker logs --tail 5 ng
+   89  docker top ng
+   90  docker stats ng
+   91  docker container run --name ng-2 --memory=200m -d nginx
+   92  docker stats ng-2
+   93  docker container run -it --name my-container ubuntu bash
+   94  docker ps
+   95  docker ps -a
+   96  docker diff my-container
+   97  docker ps -a --filter volume=ng 
+   98  history

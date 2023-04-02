@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "3.57.0"
+      version = "~> 4.0"
     }
   }
 }
@@ -13,21 +13,19 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-variable "secgr-dynamic-ports" {
-  default = [22,80,443]
-}
-
-variable "instance-type" {
-  default = "t2.micro"
-  sensitive = true
+locals {
+  instance-type = "t2.micro"
+  key-name = "latif"
+  secgr-dynamic-ports = [22,80,443,8080]
+  user = "latif"
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
+  name        = "${local.user}-docker-instance-sg"
   description = "Allow SSH inbound traffic"
 
   dynamic "ingress" {
-    for_each = var.secgr-dynamic-ports
+    for_each = local.secgr-dynamic-ports
     content {
       from_port = ingress.value
       to_port = ingress.value
@@ -45,20 +43,36 @@ resource "aws_security_group" "allow_ssh" {
   }
 }
 
+data "aws_ami" "amazon-linux-2" {
+  owners      = ["amazon"]
+  most_recent = true
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-kernel-5.10-hvm*"]
+  }
+}
 resource "aws_instance" "tf-ec2" {
-  ami           = "ami-087c17d1fe0178315"
-  instance_type = var.instance-type
-  key_name = "tyler-team"
+  ami           = data.aws_ami.amazon-linux-2.id
+  instance_type = local.instance-type
+  key_name = local.key-name
   vpc_security_group_ids = [ aws_security_group.allow_ssh.id ]
-  iam_instance_profile = "terraform"
-      tags = {
-      Name = "Docker-engine"
+  tags = {
+      Name = "${local.user}-Docker-instance"
   }
 
   user_data = <<-EOF
               #!/bin/bash
+              hostnamectl set-hostname docker_instance
               yum update -y
-              amazon-linux-extras install docker -y
+              yum install docker -y
               systemctl start docker
               systemctl enable docker
               usermod -a -G docker ec2-user
@@ -70,4 +84,8 @@ resource "aws_instance" "tf-ec2" {
 }  
 output "myec2-public-ip" {
   value = aws_instance.tf-ec2.public_ip
+}
+
+output "ssh-connection-command" {
+  value = "ssh -i ${local.key-name}.pem ec2-user@${aws_instance.tf-ec2.public_ip}"
 }

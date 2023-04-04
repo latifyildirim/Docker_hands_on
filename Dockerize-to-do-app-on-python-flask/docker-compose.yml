@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: R1234r
+      MYSQL_DATABASE: todo_db
+      MYSQL_USER: latif
+      MYSQL_PASSWORD: Latif_1234
+    networks:
+      - latifnet
+  myapp:
+    build: .
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "80:80"
+    networks:
+      - latifnet
+networks:
+  latifnet:
+    driver: bridge
+
+
+      

@@ -1,0 +1,60 @@
+    1  mkdir composetest
+    2  cd mkdir
+    3  cd composetest/
+    4  export PS1="\[\e[1;34m\]\u\[\e[32m\]@\h# \W:\[\e[33m\]\\$\[\e[m\] "
+    5  docker-compose up
+    6  docker ps
+    7  docker ps -a
+    8  docker network ls
+    9  docker volume ls
+   10  docker image ls
+   11  docker-compose --help
+   12  docker-compose ls
+   13  docker-compose ps
+   14  docker-compose images
+   15  docker-compose config
+   16  docker-compose down
+   17  docker-compose images
+   18  docker images
+   19  docker-compose images
+   20  docker-compose images -a
+   21  docker-compose up
+   22  docker-compose images
+   23  docker images
+   24  docker-compose down
+   25  docker-compose images
+   26  docker-compose up
+   27  docker-compose down
+   28  docker-compose up --build
+   29  docker images
+   30  docker-compose images
+   31  docker images
+   32  docker-compose up --build
+   33  docker-compose down
+   34  docker ps -a
+   35  cd ../to-do-api/
+   36  docker-compose up -d
+   37  docker-compose up -d --build
+   38  docker-compose down
+   39  docker-compose up -d --build
+   40  curl http://52.90.136.21/todos
+   41  curl http://52.90.136.21/todos/3
+   42  curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21//todos
+   43  curl curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos
+   44  curl curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos/3
+   45  curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21//todos
+   46  curl -H "Content-Type: application/json" -X DELETE 
+   47  t-Type: application/json" -X DELETE 
+curl: no URL specified! curl curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos
+   48   curl curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos curl curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos
+   49  curl -H "Content-Type: application/json" -X DELETE 
+   50  curl http://52.90.136.21/todos/3
+   51  curl -H "Content-Type: application/json" -X DELETE -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos/1
+   52  curl -H "Content-Type: application/json" -X DELETE -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos/2
+   53  curl -H "Content-Type: application/json" -X DELETE -d '{"title":"Get some REST", "description":"REST in Peace"}' http://52.90.136.21/todos/5
+   54  docker-compose down
+   55  docker image ls
+   56  docker container ls
+   57  docker network ls
+   58  history
+   59  history > history.txt

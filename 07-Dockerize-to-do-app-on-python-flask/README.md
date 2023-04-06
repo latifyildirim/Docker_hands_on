@@ -47,7 +47,7 @@ app = Flask(__name__)
 
 # Configure mysql database
 app.config['MYSQL_DATABASE_HOST'] = 'database'
-app.config['MYSQL_DATABASE_USER'] = 'latifway'
+app.config['MYSQL_DATABASE_USER'] = 'latif'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'Latif_1234'
 app.config['MYSQL_DATABASE_DB'] = 'todo_db'
 app.config['MYSQL_DATABASE_PORT'] = 3306

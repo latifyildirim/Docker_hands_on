@@ -16,7 +16,7 @@ Zweck dieser praktischen Schulung ist es, den Schülern beizubringen, wie man Do
 Purpose of the this hands-on training is to give students the knowledge of basic operation on Docker containers.
 
 ### 🔖 [Handling Docker Volumes](https://github.com/latifyildirim/Docker_hands_on/tree/main/03-Handling-volumes)
-Purpose of the this hands-on training is to teach students how to handle volumes in Docker containers. 
+Zweck dieser praktischen Schulung ist es, den Schülern den Umgang mit Volumes in Docker-Containern beizubringen.
 
 ### 🔖 [Docker Networking](https://github.com/latifyildirim/Docker_hands_on/tree/main/04-Network)
 Zweck dieser praktischen Schulung ist es, den Studenten das Networking in Docker zu vermitteln.

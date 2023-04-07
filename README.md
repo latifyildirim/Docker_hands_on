@@ -13,7 +13,7 @@ Docker Hands On Studies  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome
 Zweck dieser praktischen Schulung ist es, den Schülern beizubringen, wie man Docker auf einer Amazon Linux 2 EC2-Instance installiert.
 
 ### 🔖 [Docker Container Basic Operations](https://github.com/latifyildirim/Docker_hands_on/tree/main/02-Container-basic-operations)
-Purpose of the this hands-on training is to give students the knowledge of basic operation on Docker containers.
+Ziel dieser praktischen Schulung ist es, den Schülern das Wissen über die grundlegende Bedienung von Docker-Containern zu vermitteln.
 
 ### 🔖 [Handling Docker Volumes](https://github.com/latifyildirim/Docker_hands_on/tree/main/03-Handling-volumes)
 Zweck dieser praktischen Schulung ist es, den Schülern den Umgang mit Volumes in Docker-Containern beizubringen.

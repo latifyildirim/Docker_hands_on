@@ -28,7 +28,7 @@ Purpose of this hands-on training is to give the students understanding to image
 Purpose of the this hands-on training is to give the students understanding to Docker Compose.
 
 ### 🔖 [Dockerize To-Do Web API Developed in Python Flask](https://github.com/latifyildirim/Docker_hands_on/tree/main/07-Dockerize-to-do-app-on-python-flask)
-Purpose of the this hands-on training is to dockerize an Python Flask application with Dockerfile and Docker compose.
+Ziel dieser praktischen Schulung ist es, eine Python Flask-Anwendung mit Dockerfile und Docker compose zu docken.
 
 ### 🔖 [Docker Swarm Basic Operations](https://github.com/latifyildirim/Docker_hands_on/tree/main/docker-swarm-basic-operations)
 Zweck dieser praktischen Schulung ist es, den Schülern das Verständnis für die grundlegenden Vorgänge von Docker Swarm zu vermitteln.

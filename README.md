@@ -22,7 +22,7 @@ Purpose of the this hands-on training is to teach students how to handle volumes
 Purpose of the this hands-on training is to give the student understanding to networking in Docker.
 
 ### 🔖 [Docker Image Basic Operations](https://github.com/latifyildirim/Docker_hands_on/tree/main/05-Image-basic-operations)
-Purpose of this hands-on training is to give the students understanding to images in Docker.
+Zweck dieser praktischen Schulung ist es, den Schülern Bilder in Docker zu vermitteln.
 
 ### 🔖 [Docker Compose Operations](https://github.com/latifyildirim/Docker_hands_on/tree/main/06-Compose-operations)
 Ziel dieser praktischen Schulung ist es, den Schülern Docker Compose näher zu bringen.

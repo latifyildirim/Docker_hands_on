@@ -36,7 +36,7 @@ At the end of the this hands-on training, students will be able to;
 
 ## Part 1 - Launch Docker Machine Instances and Connect with SSH
 
-- Launch `five` Compose enabled Docker machines on Amazon Linux 2 with security group allowing SSH connections using the of [latifway Docker Swarm Cloudformation Template](./latifway-docker-swarm-cfn-template.yml).
+- Launch `five` Compose enabled Docker machines on Amazon Linux 2 with security group allowing SSH connections using the of [Clarusway Docker Swarm Cloudformation Template](./clarusway-docker-swarm-cfn-template.yml).
 
 - Connect to your instances with SSH.
 

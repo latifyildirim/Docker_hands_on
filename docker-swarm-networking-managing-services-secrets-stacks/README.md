@@ -168,10 +168,10 @@ docker service ps webserver
 
 - Check the URLs of nodes that is not running the task with `http://<ec2-public-hostname-of-node>` in the browser and show that the app is **now** accessible.
 
-- Create a service for `latifway/latifdb` and connect it latif-net.
+- Create a service for `clarusway/clarusdb` and connect it latif-net.
 
 ```bash
-docker service create --name latif-db --network latif-net latifway/latifdb
+docker service create --name latif-db --network latif-net clarusway/clarusdb
 ```
 
 - List services
@@ -243,7 +243,7 @@ docker secret ls
 - Create a new service with secrets.
 
 ```bash
-docker service create -d --name secretdemo --secret username --secret userpassword latifway/container-info:1.0
+docker service create -d --name secretdemo --secret username --secret userpassword clarusway/container-info:1.0
 ```
 
 - List the tasks and go to terminal of ec2-instance which is running `secretdemo` task.

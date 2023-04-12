@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: R1234r
+      MYSQL_DATABASE: todo_db
+      MYSQL_USER: clarusway
+      MYSQL_PASSWORD: Clarusway_1
+    networks:
+      - networkName
+
+  myapp:
+    image: clarusway/to-do-api:latest
+    depends_on:
+      - database
+    networks:
+      - networkName
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 5
+
+networks:
+  networkName:
+    driver: overlay

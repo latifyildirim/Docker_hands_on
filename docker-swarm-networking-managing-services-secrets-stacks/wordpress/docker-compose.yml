@@ -1,6 +1,44 @@
 # Bu key girilmeden olan model 
 
-version: '3'
+# version: '3'
+# services:
+#   # Database
+#   db:
+#     image: mysql:latest
+#     restart: always
+#     environment:
+#       MYSQL_ROOT_PASSWORD: password
+#       MYSQL_DATABASE: wordpress
+#       MYSQL_USER: wordpress
+#       MYSQL_PASSWORD: wordpress
+#     networks:
+#       - wpsite 
+#   # Wordpress
+#   wordpress:
+#     depends_on:
+#       - db
+#     image: wordpress:latest
+#     ports:
+#       - '80:80'
+#     restart: always
+#     deploy:
+#       replicas: 3
+#     environment:
+#       WORDPRESS_DB_HOST: db:3306
+#       WORDPRESS_DB_USER: wordpress
+#       WORDPRESS_DB_PASSWORD: wordpress
+#     networks:
+#       - wpsite
+# networks:
+#   wpsite: 
+#     driver: overlay
+
+
+
+# Secrets ile kullanimi 
+
+version: '3.9'
+
 services:
   # Database
   db:
@@ -10,9 +48,11 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_PASSWORD_FILE: /run/secrets/wp_password
     networks:
-      - wpsite 
+      - wpsite
+    secrets:
+      - wp_password
   # Wordpress
   wordpress:
     depends_on:
@@ -26,9 +66,15 @@ services:
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/wp_password
+      WORDPRESS_DB_NAME: wordpress
     networks:
       - wpsite
+    secrets:
+      - wp_password
 networks:
   wpsite: 
     driver: overlay
+secrets:
+  wp_password:
+    file: wp_password.txt

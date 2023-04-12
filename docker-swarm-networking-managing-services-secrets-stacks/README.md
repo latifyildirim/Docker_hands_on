@@ -137,7 +137,7 @@ docker service create \
   --name viz \
   --publish 8080:8080/tcp \
   --constraint 'node.role==manager' \
-  --constraint 'node.hostname==manager2' \
+  --constraint 'node.hostname==manager1' \
   --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
   dockersamples/visualizer
 ```
@@ -306,12 +306,12 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: R1234r
             MYSQL_DATABASE: todo_db
-            MYSQL_USER: latifway
-            MYSQL_PASSWORD: latifway_1
+            MYSQL_USER: clarusway
+            MYSQL_PASSWORD: clarusway_1
         networks:
             - latifnet
     myapp:
-        image: latifway/to-do-api:latest
+        image: clarusway/to-do-api:latest
         deploy:
             replicas: 5
         depends_on:

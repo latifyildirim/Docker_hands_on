@@ -370,7 +370,7 @@ cd wordpress
 - Create a file called `wp_password.txt` containing a password in your project folder.
 
 ```bash
-echo "Kk12345" > wp_password.txt
+echo "Ly58675" > wp_password.txt
 ```
 
 - Create a file called `docker-compose.yml` in your project folder with following setup and explain it.
@@ -383,8 +383,8 @@ services:
         image: mysql:latest
         environment:
             MYSQL_ROOT_PASSWORD: R1234r
-            MYSQL_DATABASE: latifwaywp
-            MYSQL_USER: latifway
+            MYSQL_DATABASE: latifwp
+            MYSQL_USER: latif
             MYSQL_PASSWORD_FILE: /run/secrets/wp_password
         secrets:
             - wp_password
@@ -401,10 +401,10 @@ services:
                 delay: 5s
                 order: start-first
         environment:
-            WORDPRESS_DB_USER: latifway
+            WORDPRESS_DB_USER: latif
             WORDPRESS_DB_PASSWORD_FILE: /run/secrets/wp_password
             WORDPRESS_DB_HOST: wpdatabase:3306
-            WORDPRESS_DB_NAME: latifwaywp
+            WORDPRESS_DB_NAME: latifwp
         ports:
             - "80:80"
         secrets:
